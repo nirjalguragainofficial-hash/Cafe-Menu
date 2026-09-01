@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Ember Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Ember Cafe</h1>
+            </div>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div style="background-color: var(--primary-color); color: white; padding: 4rem 0; text-align: center;">
+        <h2>Our Menu</h2>
+        <p>Freshly prepared daily</p>
+    </div>
+
+    <!-- MENU SECTION -->
+    <section class="container">
+        
+        <!-- Filter Buttons (Used by JS) -->
+        <div class="menu-filters reveal">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="starters">Starters</button>
+            <button class="filter-btn" data-filter="main">Main Course</button>
+            <button class="filter-btn" data-filter="desserts">Desserts</button>
+            <button class="filter-btn" data-filter="drinks">Drinks</button>
+        </div>
+
+        <div class="grid-container">
+            
+            <!-- MENU ITEM 1 -->
+            <!-- The 'data-category' matches the button's 'data-filter' -->
+            <div class="card menu-item reveal" data-category="starters">
+                <img src="https://images.unsplash.com/photo-1541014741259-de529411b96a?auto=format&fit=crop&w=600&q=80" alt="Bruschetta" class="card-img">
+                <div class="card-content">
+                    <div class="card-title">
+                        <h4>Tomato Bruschetta</h4>
+                        <span class="card-price">$8</span>
+                    </div>
+                    <p>Toasted baguette slices topped with garlic, tomatoes, and basil.</p>
+                </div>
+            </div>
+
+            <!-- MENU ITEM 2 -->
+            <div class="card menu-item reveal" data-category="main">
+                <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=600&q=80" alt="Steak" class="card-img">
+                <div class="card-content">
+                    <div class="card-title">
+                        <h4>Grilled Ribeye</h4>
+                        <span class="card-price">$28</span>
+                    </div>
+                    <p>Prime cut served with mashed potatoes and asparagus.</p>
+                </div>
+            </div>
+
+            <!-- MENU ITEM 3 -->
+            <div class="card menu-item reveal" data-category="main">
+                <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=600&q=80" alt="Pasta" class="card-img">
+                <div class="card-content">
+                    <div class="card-title">
+                        <h4>Truffle Pasta</h4>
+                        <span class="card-price">$22</span>
+                    </div>
+                    <p>Handmade fettuccine in a rich cream sauce with shaved truffle.</p>
+                </div>
+            </div>
+
+            <!-- MENU ITEM 4 -->
+            <div class="card menu-item reveal" data-category="desserts">
+                <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=600&q=80" alt="Cheesecake" class="card-img">
+                <div class="card-content">
+                    <div class="card-title">
+                        <h4>NY Cheesecake</h4>
+                        <span class="card-price">$9</span>
+                    </div>
+                    <p>Classic dense cheesecake with a berry compote topping.</p>
+                </div>
+            </div>
+
+            <!-- MENU ITEM 5 -->
+            <div class="card menu-item reveal" data-category="drinks">
+                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Cocktail" class="card-img">
+                <div class="card-content">
+                    <div class="card-title">
+                        <h4>Citrus Splash</h4>
+                        <span class="card-price">$7</span>
+                    </div>
+                    <p>Refreshing blend of fresh lemon, mint, and sparkling water.</p>
+                </div>
+            </div>
+            
+            <!-- MENU ITEM 6 -->
+            <div class="card menu-item reveal" data-category="drinks">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" alt="Coffee" class="card-img">
+                <div class="card-content">
+                    <div class="card-title">
+                        <h4>Pour Over Coffee</h4>
+                        <span class="card-price">$6</span>
+                    </div>
+                    <p>Single origin beans brewed to perfection.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Ember Cafe</h3>
+                <p>123 Culinary Avenue, Food District</p>
+                <p>contact@embercafe.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Opening Hours</h3>
+                <p>Mon - Fri: 8:00 AM - 9:00 PM</p>
+                <p>Sat - Sun: 9:00 AM - 10:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ember Cafe. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

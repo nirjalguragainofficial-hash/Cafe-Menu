@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ember Cafe | Warm & Modern</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Ember Cafe</h1>
+            </div>
+            <!-- Hamburger icon for mobile view -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-content reveal">
+            <h2>Taste the Warmth</h2>
+            <p>Locally sourced ingredients, crafted with passion.</p>
+            <a href="menu.html" class="btn">View Our Menu</a>
+        </div>
+    </header>
+
+    <!-- FEATURED DISHES SECTION -->
+    <section class="container">
+        <div class="text-center reveal" style="text-align: center; margin-bottom: 2rem;">
+            <h3>Featured Dishes</h3>
+            <p>Our chef's seasonal recommendations</p>
+        </div>
+
+        <div class="grid-container">
+            <!-- Card 1 -->
+            <div class="card reveal">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Avocado Toast" class="card-img">
+                <div class="card-content">
+                    <div class="card-title">
+                        <h4>Artisan Avocado Toast</h4>
+                        <span class="card-price">$12</span>
+                    </div>
+                    <p>Sourdough, smashed avocado, cherry tomatoes, and microgreens.</p>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="card reveal">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80" alt="Margherita Pizza" class="card-img">
+                <div class="card-content">
+                    <div class="card-title">
+                        <h4>Rustic Margherita</h4>
+                        <span class="card-price">$16</span>
+                    </div>
+                    <p>Wood-fired crust, San Marzano tomato sauce, fresh mozzarella.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card reveal">
+                <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80" alt="Latte" class="card-img">
+                <div class="card-content">
+                    <div class="card-title">
+                        <h4>Caramel Macchiato</h4>
+                        <span class="card-price">$5</span>
+                    </div>
+                    <p>Espresso layered with steamed milk and a drizzle of caramel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT PREVIEW SECTION -->
+    <section style="background-color: white; padding: 4rem 0;">
+        <div class="container reveal" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+            <div style="flex: 1; min-width: 300px;">
+                <img src="https://images.unsplash.com/photo-1559925393-8be0aaff477c?auto=format&fit=crop&w=800&q=80" alt="Cafe Interior" style="border-radius: 8px;">
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <h3>Our Story</h3>
+                <p style="margin-bottom: 1.5rem;">Born from a love of community and exceptional coffee, Ember Cafe is your home away from home. We believe in taking things slow and savoring every bite.</p>
+                <a href="about.html" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Ember Cafe</h3>
+                <p>123 Culinary Avenue, Food District</p>
+                <p>contact@embercafe.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Opening Hours</h3>
+                <p>Mon - Fri: 8:00 AM - 9:00 PM</p>
+                <p>Sat - Sun: 9:00 AM - 10:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ember Cafe. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
