@@ -66,63 +66,81 @@ function initMenuFilter() {
 
     initMenuFilter();
 
-    // 3. CONTACT FORM VALIDATION (Only applies if on the Contact page)
-    // ---------------------------------------------------------
+// ==========================================
+// 3. CONTACT FORM VALIDATION
+// ==========================================
+// Helper function to check valid email format
+function isValidEmail(email) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
+
+// Display error text for a specific field
+function showError(errorElement, message) {
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+}
+
+// Hide error message
+function clearError(errorElement) {
+    errorElement.textContent = '';
+    errorElement.style.display = 'none';
+}
+
+// Handles contact form validation and submission
+function initContactForm() {
     const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevent page reload on submit
-            
-            let isValid = true;
-            
-            // Get form fields and their respective error message spans
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const message = document.getElementById('message');
-            
-            const nameError = document.getElementById('nameError');
-            const emailError = document.getElementById('emailError');
-            const messageError = document.getElementById('messageError');
+    if (!contactForm) return;
 
-            // Reset errors initially
-            nameError.style.display = 'none';
-            emailError.style.display = 'none';
-            messageError.style.display = 'none';
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
 
-            // Validate Name (Cannot be empty)
-            if (name.value.trim() === '') {
-                nameError.textContent = 'Name is required';
-                nameError.style.display = 'block';
-                isValid = false;
-            }
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const messageError = document.getElementById('messageError');
 
-            // Validate Email (Regex for correct format)
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (email.value.trim() === '') {
-                emailError.textContent = 'Email is required';
-                emailError.style.display = 'block';
-                isValid = false;
-            } else if (!emailRegex.test(email.value.trim())) {
-                emailError.textContent = 'Please enter a valid email address';
-                emailError.style.display = 'block';
-                isValid = false;
-            }
+    contactForm.addEventListener('submit', function (event) {
+        event.preventDefault();
 
-            // Validate Message (Cannot be empty)
-            if (message.value.trim() === '') {
-                messageError.textContent = 'Message is required';
-                messageError.style.display = 'block';
-                isValid = false;
-            }
+        // Clear previous error messages
+        clearError(nameError);
+        clearError(emailError);
+        clearError(messageError);
 
-            // If everything is valid, simulate form submission success
-            if (isValid) {
-                alert('Thank you for reaching out! We will get back to you soon.');
-                contactForm.reset(); // Clear the form
-            }
-        });
-    }
+        let formIsValid = true;
+
+        // Validate name
+        if (nameInput.value.trim() === '') {
+            showError(nameError, 'Name is required');
+            formIsValid = false;
+        }
+
+        // Validate email
+        const emailValue = emailInput.value.trim();
+        if (emailValue === '') {
+            showError(emailError, 'Email is required');
+            formIsValid = false;
+        } else if (!isValidEmail(emailValue)) {
+            showError(emailError, 'Please enter a valid email address');
+            formIsValid = false;
+        }
+
+        // Validate message
+        if (messageInput.value.trim() === '') {
+            showError(messageError, 'Message is required');
+            formIsValid = false;
+        }
+
+        // If all fields are valid, show confirmation and reset form
+        if (formIsValid) {
+            alert('Thank you for reaching out! We will get back to you soon.');
+            contactForm.reset();
+        }
+    });
+}
+
+    initContactForm();
 
     // 4. SCROLL-REVEAL ANIMATIONS (Using Intersection Observer)
     // ---------------------------------------------------------
