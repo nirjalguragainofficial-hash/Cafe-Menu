@@ -142,31 +142,46 @@ function initContactForm() {
 
     initContactForm();
 
-    // 4. SCROLL-REVEAL ANIMATIONS (Using Intersection Observer)
-    // ---------------------------------------------------------
-    // This watches elements as you scroll down and fades them in
+// ==========================================
+// 4. SCROLL-REVEAL ANIMATION
+// ==========================================
+// Watches elements as the user scrolls and fades them in when visible
+function initScrollReveal() {
     const revealElements = document.querySelectorAll('.reveal');
-    
-    // Configuration for the observer
-    const revealOptions = {
-        threshold: 0.15, // Trigger when 15% of the element is visible in viewport
-        rootMargin: "0px 0px -50px 0px" // Triggers slightly before the item actually hits the bottom
+
+    // No reveal elements on this page, so exit early
+    if (revealElements.length === 0) return;
+
+    // Observer settings:
+    // - trigger when 15% of the element comes into view
+    // - offset by 50px from the bottom so it fires slightly before fully visible
+    const observerSettings = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
     };
 
-    const revealOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            // If the element is not intersecting the viewport, do nothing
+    // This function runs every time an observed element enters or leaves the screen
+    function onElementVisible(entries, observer) {
+        entries.forEach(function (entry) {
+            // Skip elements that are not yet visible
             if (!entry.isIntersecting) return;
-            
-            // Add the 'active' class which triggers the CSS transition
+
+            // Add 'active' class to trigger the CSS fade-in animation
             entry.target.classList.add('active');
-            
-            // Stop observing the element once it's revealed so it stays visible
+
+            // Stop watching this element — it only needs to animate once
             observer.unobserve(entry.target);
         });
-    }, revealOptions);
+    }
 
-    // Apply the observer to all elements with the '.reveal' class
-    revealElements.forEach(el => revealOnScroll.observe(el));
+    const scrollObserver = new IntersectionObserver(onElementVisible, observerSettings);
+
+    // Start watching every element that has the 'reveal' class
+    revealElements.forEach(function (element) {
+        scrollObserver.observe(element);
+    });
+}
+
+    initScrollReveal();
 
 });
