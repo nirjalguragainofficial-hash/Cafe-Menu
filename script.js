@@ -22,37 +22,49 @@ function initMobileNav() {
 
     initMobileNav();
 
-    // 2. MENU CATEGORY FILTERING (Only applies if on the Menu page)
-    // ---------------------------------------------------------
+// ==========================================
+// 2. MENU CATEGORY FILTERING
+// ==========================================
+// Shows or hides menu items based on chosen category
+function filterItemsByCategory(selectedCategory, menuItems) {
+    menuItems.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        const matchesCategory = (selectedCategory === 'all' || itemCategory === selectedCategory);
+
+        if (matchesCategory) {
+            item.style.display = 'block';
+            setTimeout(() => {
+                item.style.opacity = '1';
+            }, 50);
+        } else {
+            item.style.display = 'none';
+            item.style.opacity = '0';
+        }
+    });
+}
+
+// Sets up click listeners on filter buttons
+function initMenuFilter() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const menuItems = document.querySelectorAll('.menu-item');
 
-    if (filterBtns.length > 0) {
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove 'active' class from all buttons
-                filterBtns.forEach(button => button.classList.remove('active'));
-                // Add 'active' class to the clicked button
-                btn.classList.add('active');
+    // Only run if we are on the menu page
+    if (filterBtns.length === 0) return;
 
-                // Get the category from the custom 'data-filter' attribute
-                const filterValue = btn.getAttribute('data-filter');
+    filterBtns.forEach(button => {
+        button.addEventListener('click', function () {
+            // Highlight active button
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
 
-                // Loop through all menu cards
-                menuItems.forEach(item => {
-                    // Check if the item's category matches the filter or if filter is 'all'
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.style.display = 'block'; // Show item
-                        // Add a tiny delay for a smooth fade-in effect via CSS (optional refinement)
-                        setTimeout(() => item.style.opacity = '1', 50);
-                    } else {
-                        item.style.display = 'none'; // Hide item
-                        item.style.opacity = '0';
-                    }
-                });
-            });
+            // Filter the items
+            const selectedCategory = button.getAttribute('data-filter');
+            filterItemsByCategory(selectedCategory, menuItems);
         });
-    }
+    });
+}
+
+    initMenuFilter();
 
     // 3. CONTACT FORM VALIDATION (Only applies if on the Contact page)
     // ---------------------------------------------------------
