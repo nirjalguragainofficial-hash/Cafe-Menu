@@ -1,20 +1,26 @@
 // Wait for the HTML document to fully load before running scripts
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. MOBILE HAMBURGER MENU LOGIC
-    // ---------------------------------------------------------
+// ==========================================
+// 1. MOBILE NAVIGATION TOGGLE
+// ==========================================
+// Opens and closes the mobile dropdown menu when hamburger icon is clicked
+function initMobileNav() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            // Toggle the 'active' class to show/hide the menu dropdown
-            navLinks.classList.toggle('active');
-            
-            // Optional: Animate hamburger into an 'X' (you can add CSS for this)
-            hamburger.classList.toggle('toggle'); 
-        });
-    }
+    // If navigation elements are not on this page, exit early
+    if (!hamburger || !navLinks) return;
+
+    hamburger.addEventListener('click', function () {
+        // Toggle dropdown open/closed
+        navLinks.classList.toggle('active');
+
+        // Toggle hamburger animation
+    });
+}
+
+    initMobileNav();
 
     // 2. MENU CATEGORY FILTERING (Only applies if on the Menu page)
     // ---------------------------------------------------------
