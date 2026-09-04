@@ -16,7 +16,8 @@ function initMobileNav() {
         // Toggle dropdown open/closed
         navLinks.classList.toggle('active');
 
-        // Toggle hamburger animation
+        // Animate hamburger bars into an X when menu is open
+        hamburger.classList.toggle('active');
     });
 }
 
