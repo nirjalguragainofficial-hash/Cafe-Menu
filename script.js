@@ -184,4 +184,29 @@ function initScrollReveal() {
 
     initScrollReveal();
 
+// ==========================================
+// 5. BACK TO TOP BUTTON
+// ==========================================
+// Shows a floating button when the user scrolls down, scrolls back to top on click
+function initBackToTop() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+
+    // Show button after scrolling 300px
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+    });
+
+    // Smooth scroll to top on click
+    btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+    initBackToTop();
+
 });
